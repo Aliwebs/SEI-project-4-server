@@ -1,0 +1,36 @@
+POST http://localhost:8000/api/auth/register/
+Content-Type: application/json
+
+{
+  "username":"Ali",
+  "email": "ali@email.com",
+  "password": "passcal123",
+  "passwordConfirmation": "passcal123"
+}
+
+
+### Login
+
+POST http://localhost:8000/api/auth/login/
+Content-Type: application/json
+
+{
+  "email": "ali@email.com",
+  "password": "passcal123"
+}
+
+### View profile
+GET http://localhost:8000/api/auth/profile/0a552a4b-83b1-4c09-afc0-595207738ef5/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwYTU1MmE0Yi04M2IxLTRjMDktYWZjMC01OTUyMDc3MzhlZjUiLCJleHAiOjE2MjM5MzQyNTl9.vkxA7QJVXTp7OxMqqTYj3m1EN4MqnmSUMGNNg4P8240
+### Profile
+PUT http://localhost:8000/api/auth/profile/0a552a4b-83b1-4c09-afc0-595207738ef5/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlYTZkOGRmYy1mNTdhLTRiMWUtODM0ZC02MjI0MzdkNmE5ZDMiLCJleHAiOjE2MjM5MjQxODB9.ZSNVxBEXYFkJr0m1z3cqVAddGRiQFE90M6C-_iJDeVM
+
+{
+    "username": "AliWebs",
+    "firstName": "Ali",
+    "lastName": "Shawn",
+    "profilePic": "https://res.cloudinary.com/dnvstdsde/image/upload/v1623409738/user_yf5keh.png",
+    "backgroundPic": "https://res.cloudinary.com/dnvstdsde/image/upload/v1623410114/index_s7iuv2.jpg"
+}
