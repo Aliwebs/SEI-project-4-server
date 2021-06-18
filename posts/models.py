@@ -1,29 +1,32 @@
+from django.utils.timezone import now
 from django.db import models
 from django.contrib.auth import get_user_model
-from django.db.models.deletion import CASCADE
 
 User = get_user_model()
 
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    content = models.CharField(max_length=100)
-    date = models.DateField()
-    user_id = models.ForeignKey(
-        User,
-        related_name='posts',
-        on_delete=CASCADE
+    content = models.TextField(max_length=250)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(null=True, auto_now=True)
+    user = models.ForeignKey(
+        'jwt_auth.User',
+        on_delete=models.CASCADE
     )
+
+    def __str__(self):
+        return f'{self.title}'
 
 
 class Like(models.Model):
-    user_id = models.ForeignKey(
-        User,
+    user = models.ForeignKey(
+        'jwt_auth.User',
         related_name='likes',
-        on_delete=CASCADE
+        on_delete=models.CASCADE
     )
-    post_id = models.ForeignKey(
+    post = models.ForeignKey(
         Post,
         related_name='likes',
-        on_delete=CASCADE
+        on_delete=models.CASCADE
     )

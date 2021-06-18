@@ -34,3 +34,37 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlYTZkOGRmY
     "profilePic": "https://res.cloudinary.com/dnvstdsde/image/upload/v1623409738/user_yf5keh.png",
     "backgroundPic": "https://res.cloudinary.com/dnvstdsde/image/upload/v1623410114/index_s7iuv2.jpg"
 }
+
+### Get all posts 
+GET http://localhost:8000/api/posts/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQxNzg4NDh9.lhBvbkP-7DmrzJ7coS8OjPFlcIYj8lKhRuTqkZWdDQA
+
+
+### Post a new post
+POST http://localhost:8000/api/posts/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQxNzg4NDh9.lhBvbkP-7DmrzJ7coS8OjPFlcIYj8lKhRuTqkZWdDQA
+
+{
+  "title":"This is yet another post",
+  "content":"This is yet another post content"
+}
+
+### Get 1 post
+GET http://localhost:8000/api/posts/6/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQxNzg4NDh9.lhBvbkP-7DmrzJ7coS8OjPFlcIYj8lKhRuTqkZWdDQA
+
+### Edit a post
+PUT http://localhost:8000/api/posts/6/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQxNzg4NDh9.lhBvbkP-7DmrzJ7coS8OjPFlcIYj8lKhRuTqkZWdDQA
+
+{
+  "title":"This is yet another post",
+  "content":"This is an edited post"
+}
+
+### Delete a post
+
+DELETE  http://localhost:8000/api/posts/6/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQxNzg4NDh9.lhBvbkP-7DmrzJ7coS8OjPFlcIYj8lKhRuTqkZWdDQA

@@ -43,7 +43,11 @@ class LoginView(APIView):
             settings.SECRET_KEY,
             algorithm='HS256'
         )
-        return Response(data={'token': token, 'message': f'Welcome back {user_to_login.username}'}, status=status.HTTP_200_OK)
+        return Response(data={
+            'token': token,
+            'message': f'Welcome back {user_to_login.username}'},
+            status=status.HTTP_200_OK
+        )
 
 
 class ProfileView(APIView):

@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
-from .models import Following
+from .models import Follow
 
 User = get_user_model()
 
 
 admin.site.register(User)
-admin.site.register(Following)
+admin.site.register(Follow)
