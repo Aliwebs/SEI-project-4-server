@@ -35,5 +35,9 @@ class UserSerializer(serializers.ModelSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name',
-                  'profile_pic', 'background_pic', 'dob')
+        fields = ('id','username', 'first_name', 'last_name',
+                  'profile_pic', 'background_pic', 'dob', 'followers')
+
+
+class PopulatedProfileSerializer(ProfileSerializer):
+    followers = ProfileSerializer(many=True)

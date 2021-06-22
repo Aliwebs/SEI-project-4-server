@@ -21,7 +21,7 @@ Content-Type: application/json
 
 ### View profile
 GET http://localhost:8000/api/auth/profile/0a552a4b-83b1-4c09-afc0-595207738ef5/
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwYTU1MmE0Yi04M2IxLTRjMDktYWZjMC01OTUyMDc3MzhlZjUiLCJleHAiOjE2MjM5MzQyNTl9.vkxA7QJVXTp7OxMqqTYj3m1EN4MqnmSUMGNNg4P8240
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQ1Njk5OTd9.2CzBgtI2EzLmWDPmaNQLL5trPiShxlTIBYDhp79mceM
 ### Profile
 PUT http://localhost:8000/api/auth/profile/0a552a4b-83b1-4c09-afc0-595207738ef5/
 Content-Type: application/json
@@ -37,22 +37,24 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlYTZkOGRmY
 
 ### Get all posts 
 GET http://localhost:8000/api/posts/
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQxNzg4NDh9.lhBvbkP-7DmrzJ7coS8OjPFlcIYj8lKhRuTqkZWdDQA
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQ1ODMwNzV9.CoQ-U_uMjr_8UYIAh8yOdtB3mK2bXbELcIz5FQOVnX8
 
 
 ### Post a new post
 POST http://localhost:8000/api/posts/
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQxNzg4NDh9.lhBvbkP-7DmrzJ7coS8OjPFlcIYj8lKhRuTqkZWdDQA
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQ1OTQwOTR9.hsaQ58-Us_gRMylPceplXb2UJzcUGQxy8QB5yz-KoeE
 
 {
-  "title":"This is yet another post",
-  "content":"This is yet another post content"
+  "content":"This is yet another post content",
+  "attachments":{
+    "url":  "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+  }
 }
 
 ### Get 1 post
-GET http://localhost:8000/api/posts/6/
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQxNzg4NDh9.lhBvbkP-7DmrzJ7coS8OjPFlcIYj8lKhRuTqkZWdDQA
+GET http://localhost:8000/api/posts/1/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQ1ODMwNzV9.CoQ-U_uMjr_8UYIAh8yOdtB3mK2bXbELcIz5FQOVnX8
 
 ### Edit a post
 PUT http://localhost:8000/api/posts/6/
@@ -60,7 +62,6 @@ Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQxNzg4NDh9.lhBvbkP-7DmrzJ7coS8OjPFlcIYj8lKhRuTqkZWdDQA
 
 {
-  "title":"This is yet another post",
   "content":"This is an edited post"
 }
 
@@ -68,3 +69,23 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1N
 
 DELETE  http://localhost:8000/api/posts/6/
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQxNzg4NDh9.lhBvbkP-7DmrzJ7coS8OjPFlcIYj8lKhRuTqkZWdDQA
+
+
+### Get all comments 
+GET http://localhost:8000/api/posts/1/comments/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQ1ODMwNzV9.CoQ-U_uMjr_8UYIAh8yOdtB3mK2bXbELcIz5FQOVnX8
+
+
+### Post a new comment
+POST http://localhost:8000/api/posts/1/comments/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQ1ODMwNzV9.CoQ-U_uMjr_8UYIAh8yOdtB3mK2bXbELcIz5FQOVnX8
+
+{
+  "content":"This is a comment"
+}
+
+### Post a new comment
+DELETE  http://localhost:8000/api/posts/comments/15/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMzBiOGY1NS05NjFiLTQzMjEtYjJkYS04ODBhOTI4ZWYwOWEiLCJleHAiOjE2MjQ1ODMwNzV9.CoQ-U_uMjr_8UYIAh8yOdtB3mK2bXbELcIz5FQOVnX8
+

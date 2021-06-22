@@ -1,6 +1,6 @@
-from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from .models import Post
+from rest_framework import serializers
+from .models import Attachment, Post, Comment
 
 User = get_user_model()
 
@@ -19,6 +19,29 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'username', 'profile_pic')
 
 
-class PopulatedPostSerializer(PostSerializer):
+class AttachmentSerializer(serializers.ModelSerializer):
 
+    class Meta:
+        model = Attachment
+        fields = ('id', 'url', 'owner')
+
+
+class PopulatedAttachmentSerializer(AttachmentSerializer):
+    owner = UserSerializer()
+
+
+class CommentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Comment
+        fields = '__all__'
+
+
+class PopulatedCommentSerializer(CommentSerializer):
+    owner = UserSerializer()
+
+
+class PopulatedPostSerializer(PostSerializer):
     user = UserSerializer()
+    comments = PopulatedCommentSerializer(many=True)
+    attachments = PopulatedAttachmentSerializer(many=True)

@@ -6,6 +6,7 @@ from django.db.models.deletion import DO_NOTHING
 
 class User(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    username = models.CharField(max_length=50, unique=True, null=True)
     email = models.CharField(max_length=50, unique=True)
     profile_pic = models.CharField(
         max_length=350,
@@ -29,20 +30,8 @@ class User(AbstractUser):
     )
     private = models.BooleanField(default=True)
     dob = models.DateField(null=True)
-
-
-class Follow(models.Model):
-    user = models.ForeignKey(
-        'jwt_auth.User',
-        related_name='user',
-        on_delete=DO_NOTHING
+    followers = models.ManyToManyField(
+        'self',
+        symmetrical=False,
+        blank=True
     )
-
-    following = models.ForeignKey(
-        'jwt_auth.User',
-        related_name='follower',
-        on_delete=DO_NOTHING
-    )
-
-    def __str__(self):
-        return f'{self.user} following {self.following}'
