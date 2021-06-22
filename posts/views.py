@@ -30,11 +30,10 @@ class PostListView(APIView):
         serialized_post = PostSerializer(data=request.data)
         if serialized_post.is_valid():
             serialized_post.save()
-
             postId = serialized_post.data.get('id')
             post = Post.objects.get(pk=postId)
             attachments['owner'] = request.user.id
-            attachments['post'] = postId
+            attachments['post'] = serialized_post.data.get('id')
             serialized_attachment = AttachmentSerializer(data=attachments)
             if serialized_attachment.is_valid():
                 serialized_attachment.save()

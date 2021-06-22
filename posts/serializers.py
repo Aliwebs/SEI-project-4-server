@@ -23,7 +23,7 @@ class AttachmentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Attachment
-        fields = ('id', 'url', 'owner')
+        fields = '__all__'
 
 
 class PopulatedAttachmentSerializer(AttachmentSerializer):

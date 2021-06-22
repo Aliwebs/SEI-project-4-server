@@ -43,8 +43,7 @@ class Comment(models.Model):
 
 
 class Attachment(models.Model):
-    url = models.CharField(
-        max_length=250, null=True, default='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png')
+    url = models.CharField(max_length=250)
     post = models.ForeignKey(
         Post,
         related_name='attachments',
