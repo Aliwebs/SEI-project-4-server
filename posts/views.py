@@ -59,8 +59,8 @@ class PostDetailView(APIView):
 
     def put(self, request, pk):
         post = self.get_post(pk)
-        if post.user != request.user:
-            raise PermissionDenied()
+        # if post.user != request.user:
+        #     raise PermissionDenied()
         request.data['user'] = request.user.id
         serialized_post = PostSerializer(post, data=request.data)
         if serialized_post.is_valid():
