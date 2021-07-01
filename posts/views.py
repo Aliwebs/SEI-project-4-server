@@ -57,10 +57,18 @@ class PostDetailView(APIView):
         serialized_post = PopulatedPostSerializer(post)
         return Response(serialized_post.data)
 
+    def post(self, request, pk):
+        post = self.get_post(pk)
+        serialized_post = PostSerializer(post, data=request.data)
+        if serialized_post.is_valid():
+            serialized_post.save()
+            return Response(data=serialized_post.data, status=status.HTTP_202_ACCEPTED)
+        return Response(data=serialized_post.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
     def put(self, request, pk):
         post = self.get_post(pk)
-        # if post.user != request.user:
-        #     raise PermissionDenied()
+        if post.user != request.user:
+            raise PermissionDenied()
         request.data['user'] = request.user.id
         serialized_post = PostSerializer(post, data=request.data)
         if serialized_post.is_valid():
