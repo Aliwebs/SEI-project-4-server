@@ -9,13 +9,11 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-import django_on_heroku
 import os
+import django_on_heroku
 from pathlib import Path
 import dj_database_url
 from dotenv import load_dotenv
-
-
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -159,4 +157,5 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'jwt_auth.User'
+
 django_on_heroku.settings(locals())
