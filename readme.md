@@ -206,13 +206,20 @@ def get(self, _request):
 ## Screenshots
 
 Login
-![Login](./readme-assets/login.PNG)
+
+![Login](/readme-assets/login.png)
+
 Register
-![Register](./readme-assets/register.PNG)
+
+![Register](/readme-assets/register.png)
+
 Home
-![home](./readme-assets/home.PNG)
+
+![home](/readme-assets/home.png)
+
 Profile
-![Profile](./readme-assets/profile.PNG)
+
+![Profile](/readme-assets/profile.png)
 
 ## Bugs
 
