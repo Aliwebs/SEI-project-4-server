@@ -53,7 +53,7 @@ I planned most of the designs and features in Excalidraw first, this helped a lo
 ### Backend
 
 I started by making an ERD diagram for my database models. The general idea is that each post has an owner and that is the user who made the post, attachments and comments have a post id to reference which post they belong to. Some of the tables in the diagram were not created as they were part of stretch goals I could not get to.
-![ERD diagram](./readme-assets/ERD.png)
+<img src="./readme-assets/ERD.png" alt="ERD diagram">
 
 Then I wrote the models for the post object and all the other models, I have put the post model below as an example.
 
@@ -207,19 +207,19 @@ def get(self, _request):
 
 Login
 
-![Login](/readme-assets/login.png)
+<img src="./readme-assets/login.png" alt="Login">
 
 Register
 
-![Register](/readme-assets/register.png)
+<img src="./readme-assets/register.png" alt="Register">
 
 Home
 
-![home](/readme-assets/home.png)
+<img src="./readme-assets/home.png" alt="Home">
 
 Profile
 
-![Profile](/readme-assets/profile.png)
+<img src="./readme-assets/profile.png" alt="Profile">
 
 ## Bugs
 
